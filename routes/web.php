@@ -90,7 +90,7 @@ $rata = $tot / 4 ;
 }
 });*/
 
-Route::get('/pesan/{makanan?}/{minuman?}/{cemilan?}',
+/*Route::get('/pesan/{makanan?}/{minuman?}/{cemilan?}',
 function ($makanan = null, $minuman = null, $cemilan = null) {
 
     if ($makanan && $minuman && $cemilan != null) {
@@ -106,7 +106,7 @@ function ($makanan = null, $minuman = null, $cemilan = null) {
         return "Anda tidak memesan silahkan pulang";
              }
 
-});
+});*/
 
 /*Route::get('blog', function(){
     $data = [
@@ -169,3 +169,8 @@ function ($makanan = null, $minuman = null, $cemilan = null) {
              }
 
 });*/
+// menampilkan data
+Route::get('/testmodel', function(){
+    $query = App\Models\Post::all();
+    return $query;
+});
