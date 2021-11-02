@@ -1,6 +1,16 @@
 <?php
 
+use App\Models\Barang;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\SuplierController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,7 +31,7 @@ Route::get('hal2', function(){
     return "<h1>selamat datang di halaman kedua</h1>";
 });
 
-/* Route::get('biodata', function(){
+ Route::get('biodata', function(){
     $nama = "indah Rianti";
     $jk = "perempuan";
 $tempat_lahir = "Bandung";
@@ -170,7 +180,40 @@ function ($makanan = null, $minuman = null, $cemilan = null) {
 
 });*/
 // menampilkan data
-Route::get('/testmodel', function(){
+/*Route::get('/testmodel', function(){
     $query = App\Models\Post::all();
     return $query;
 });
+
+Route::get('test', function(){
+        $query = App\Models\Post::all();
+        return view('test', compact('query'));
+}); */
+
+/*Route::get('barang', function(){
+        $brg = App\Models\Barang::all();
+        return view('barang', compact('brg'));
+});
+Route::get('pembelian', function(){
+        $query = App\Models\Pembelian::all();
+        return view('pembelian', compact('query'));
+});
+Route::get('pembeli', function(){
+        $pem = App\Models\Pembeli::all();
+        return view('pembeli', compact('pem'));
+});
+Route::get('pesanan', function(){
+        $query = App\Models\Pesanan::all();
+        return view('pesanan', compact('query'));
+});
+Route::get('suplier', function(){
+        $query = App\Models\Suplier::all();
+        return view('suplier', compact('query'));
+}); */
+
+Route::get('/barang',[BarangController::class, 'tampilkan']);
+Route::get('/pembeli',[PembeliController::class, 'data_pembeli']);
+Route::get('/pembelian',[PembelianController::class, 'data_pembelian']);
+Route::get('/pesanan',[PesananController::class, 'data_pesanan']);
+Route::get('/suplier',[SuplierController::class, 'data_suplier']);
+
